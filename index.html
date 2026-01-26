@@ -1110,7 +1110,7 @@
                     Interested in collaboration, networking, or discussing cybersecurity?<br>
                     Always open to learning opportunities and connecting with fellow security enthusiasts!
                 </p>
-                <a href="mailto:velentikhonov@gmail.com" class="contact-email">velentikhonov@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#99effcf5fcf7edf0f2f1f6f7f6efd9fef4f8f0f5b7faf6f4" class="contact-email"><span class="__cf_email__" data-cfemail="b1c7d4ddd4dfc5d8dad9dedfdec7f1d6dcd0d8dd9fd2dedc">[email&#160;protected]</span></a>
             </div>
         </div>
     </section>
@@ -1122,7 +1122,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // CLI Login Animation - Typing Effect
         const cliLines = [
             'root@cyberportfolio:~$ sudo access portfolio',
@@ -1195,8 +1195,18 @@
         }
 
         // Start animation on page load
-        window.addEventListener('load', () => {
-            setTimeout(typeCharacter, 200);
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, starting animation');
+            const overlay = document.getElementById('cliOverlay');
+            const content = document.getElementById('cliContent');
+            console.log('Overlay:', overlay);
+            console.log('Content:', content);
+            
+            if (overlay && content) {
+                setTimeout(typeCharacter, 200);
+            } else {
+                console.error('CLI elements not found!');
+            }
         });
 
         // Smooth scrolling for navigation links
