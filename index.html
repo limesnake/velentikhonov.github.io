@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --accent-red: #ff0000;
@@ -307,14 +308,12 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .about-image::before {
-            content: '< CYBERSECURITY STUDENT />';
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: var(--text-secondary);
-            opacity: 0.3;
+        .about-image:hover {
+            border-color: var(--accent-red);
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.2);
         }
 
         /* Skills/Stats Section */
@@ -565,15 +564,15 @@
         }
 
         .social-link {
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: var(--card-bg);
             border: 2px solid var(--border-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: var(--text-primary);
             text-decoration: none;
             transition: all 0.3s ease;
@@ -665,8 +664,8 @@
 
         /* Scroll Animation */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
@@ -725,7 +724,7 @@
                     </p>
                 </div>
                 <div class="about-image fade-in">
-                    <!-- You can replace this with an actual image later -->
+                    <img src="pfp.jpeg" alt="Velen Tikhonov" style="width: 100%; height: 100%; object-fit: contain; object-position: center;">
                 </div>
             </div>
 
@@ -756,36 +755,35 @@
         <div class="container">
             <h2 class="section-title fade-in">Certifications</h2>
             <div class="certs-grid">
-                <!-- Add your certifications here - I've provided examples -->
                 <div class="cert-card fade-in">
-                    <div class="cert-name">OSCP</div>
-                    <div class="cert-issuer">Offensive Security</div>
-                    <div class="cert-date">Obtained: 2023</div>
+                    <div class="cert-name">Google Cybersecurity Certificate</div>
+                    <div class="cert-issuer">Google</div>
+                    <div class="cert-date">Issued: January 2026</div>
                 </div>
                 <div class="cert-card fade-in">
-                    <div class="cert-name">CEH</div>
-                    <div class="cert-issuer">EC-Council</div>
-                    <div class="cert-date">Obtained: 2022</div>
+                    <div class="cert-name">Pre Security Certificate</div>
+                    <div class="cert-issuer">TryHackMe</div>
+                    <div class="cert-date">Issued: January 2026</div>
                 </div>
                 <div class="cert-card fade-in">
-                    <div class="cert-name">CompTIA Security+</div>
-                    <div class="cert-issuer">CompTIA</div>
-                    <div class="cert-date">Obtained: 2021</div>
+                    <div class="cert-name">Python Essentials 1</div>
+                    <div class="cert-issuer">Cisco</div>
+                    <div class="cert-date">Issued: December 2024</div>
                 </div>
                 <div class="cert-card fade-in">
-                    <div class="cert-name">CISSP</div>
-                    <div class="cert-issuer">ISC²</div>
-                    <div class="cert-date">Obtained: 2024</div>
+                    <div class="cert-name">Introduction to Cybersecurity</div>
+                    <div class="cert-issuer">Cisco</div>
+                    <div class="cert-date">Issued: November 2024</div>
                 </div>
                 <div class="cert-card fade-in">
-                    <div class="cert-name">eJPT</div>
-                    <div class="cert-issuer">eLearnSecurity</div>
-                    <div class="cert-date">Obtained: 2021</div>
+                    <div class="cert-name">Introduction to IoT</div>
+                    <div class="cert-issuer">Cisco</div>
+                    <div class="cert-date">Issued: November 2024</div>
                 </div>
                 <div class="cert-card fade-in">
-                    <div class="cert-name">GPEN</div>
-                    <div class="cert-issuer">GIAC</div>
-                    <div class="cert-date">Obtained: 2023</div>
+                    <div class="cert-name">Fundamentals of Deep Learning</div>
+                    <div class="cert-issuer">NVIDIA</div>
+                    <div class="cert-date">Issued: January 2024</div>
                 </div>
             </div>
         </div>
@@ -931,10 +929,17 @@
         <div class="container">
             <h2 class="section-title fade-in">Connect With Me</h2>
             <div class="social-links fade-in">
-                <!-- Replace # with your actual social media URLs -->
-                <a href="https://www.linkedin.com/in/velen-tikhonov-0792a8317" target="_blank" class="social-link" title="LinkedIn">in</a>
-                <a href="https://github.com/limesnake" target="_blank" class="social-link" title="GitHub">gh</a>
-                <a href="https://tryhackme.com/p/velentikhonov" target="_blank" class="social-link" title="TryHackMe">thm</a>
+                <a href="https://www.linkedin.com/in/velen-tikhonov-0792a8317" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/limesnake" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://tryhackme.com/p/velentikhonov" target="_blank" class="social-link" title="TryHackMe">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="45" height="45" fill="currentColor">
+                        <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM406.6 274.3l-120.6 120.6c-3.125 3.125-7.219 4.688-11.31 4.688s-8.188-1.562-11.31-4.688L131.8 263.3c-6.25-6.25-6.25-16.37 0-22.62l45.25-45.25c6.25-6.25 16.38-6.25 22.62 0L256 251.8l84.38-84.38c6.25-6.25 16.38-6.25 22.62 0l45.25 45.25C414.5 218.9 414.5 229.1 406.6 274.3z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -960,7 +965,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1000,10 +1005,4 @@
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('nav a').forEach(lin
+             
