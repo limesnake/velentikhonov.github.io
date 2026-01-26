@@ -812,6 +812,18 @@
             }
         }
 
+        /* Binary Rain Background */
+        #binaryRain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
         /* Scroll Animation */
         .fade-in {
             opacity: 1;
@@ -826,6 +838,9 @@
     </style>
 </head>
 <body>
+    <!-- Binary Rain Background -->
+    <canvas id="binaryRain"></canvas>
+
     <!-- CLI Login Animation -->
     <div class="cli-overlay" id="cliOverlay">
         <div class="cli-content" id="cliContent"></div>
@@ -1110,7 +1125,7 @@
                     Interested in collaboration, networking, or discussing cybersecurity?<br>
                     Always open to learning opportunities and connecting with fellow security enthusiasts!
                 </p>
-                <a href="/cdn-cgi/l/email-protection#99effcf5fcf7edf0f2f1f6f7f6efd9fef4f8f0f5b7faf6f4" class="contact-email"><span class="__cf_email__" data-cfemail="b1c7d4ddd4dfc5d8dad9dedfdec7f1d6dcd0d8dd9fd2dedc">[email&#160;protected]</span></a>
+                <a href="mailto:velentikhonov@gmail.com" class="contact-email">velentikhonov@gmail.com</a>
             </div>
         </div>
     </section>
@@ -1122,7 +1137,48 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        // Binary Rain Animation
+        const canvas = document.getElementById('binaryRain');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const binary = '01';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+
+        function drawBinaryRain() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#ff0000';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawBinaryRain, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
         // CLI Login Animation - Typing Effect
         const cliLines = [
             'root@cyberportfolio:~$ sudo access portfolio',
