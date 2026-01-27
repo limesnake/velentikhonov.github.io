@@ -206,6 +206,28 @@
             color: var(--text-secondary);
         }
 
+        .cert-skills {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding: 0;
+        }
+
+        .cert-skills li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .cert-skills li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
         /* Theme Toggle Button */
         .theme-toggle {
             position: fixed;
@@ -285,36 +307,84 @@
                     <div class="cert-name">Google Cybersecurity Certificate</div>
                     <div class="cert-issuer">Google</div>
                     <div class="cert-date">Issued: January 2026</div>
+                    <ul class="cert-skills">
+                        <li>Security Risk Management</li>
+                        <li>Network Security & Monitoring</li>
+                        <li>Linux & SQL Fundamentals</li>
+                        <li>SIEM Tools (Splunk, Chronicle)</li>
+                        <li>Incident Response & Detection</li>
+                        <li>Python for Security Automation</li>
+                    </ul>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-name">Pre Security Certificate</div>
                     <div class="cert-issuer">TryHackMe</div>
                     <div class="cert-date">Issued: January 2026</div>
+                    <ul class="cert-skills">
+                        <li>Networking Fundamentals</li>
+                        <li>How the Web Works</li>
+                        <li>Linux & Windows Basics</li>
+                        <li>Operating System Security</li>
+                        <li>TCP/IP & OSI Model</li>
+                        <li>Basic Security Principles</li>
+                    </ul>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-name">Python Essentials 1</div>
                     <div class="cert-issuer">Cisco</div>
                     <div class="cert-date">Issued: December 2024</div>
+                    <ul class="cert-skills">
+                        <li>Python Programming Fundamentals</li>
+                        <li>Data Types & Variables</li>
+                        <li>Control Flow & Loops</li>
+                        <li>Functions & Modules</li>
+                        <li>Lists, Tuples & Dictionaries</li>
+                        <li>Error Handling & Debugging</li>
+                    </ul>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-name">Introduction to Cybersecurity</div>
                     <div class="cert-issuer">Cisco</div>
                     <div class="cert-date">Issued: November 2024</div>
+                    <ul class="cert-skills">
+                        <li>Cybersecurity Fundamentals</li>
+                        <li>Threat & Vulnerability Analysis</li>
+                        <li>Data Protection & Privacy</li>
+                        <li>Network Security Concepts</li>
+                        <li>Cyber Attack Types</li>
+                        <li>Security Best Practices</li>
+                    </ul>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-name">Introduction to IoT</div>
                     <div class="cert-issuer">Cisco</div>
                     <div class="cert-date">Issued: November 2024</div>
+                    <ul class="cert-skills">
+                        <li>IoT Fundamentals & Architecture</li>
+                        <li>Sensors & Actuators</li>
+                        <li>IoT Security Challenges</li>
+                        <li>Network Connectivity for IoT</li>
+                        <li>Data Analytics in IoT</li>
+                        <li>Smart City Applications</li>
+                    </ul>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-name">Fundamentals of Deep Learning</div>
                     <div class="cert-issuer">NVIDIA</div>
                     <div class="cert-date">Issued: January 2024</div>
+                    <ul class="cert-skills">
+                        <li>Neural Network Architecture</li>
+                        <li>Convolutional Neural Networks</li>
+                        <li>Data Augmentation Techniques</li>
+                        <li>Model Training & Optimization</li>
+                        <li>Transfer Learning</li>
+                        <li>Deep Learning Frameworks</li>
+                    </ul>
                 </div>
             </div>
         </div>
