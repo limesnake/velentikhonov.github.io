@@ -1258,15 +1258,34 @@
     <!-- Blog Section -->
     <section id="blog">
         <div class="container">
-            <h2 class="section-title fade-in">What I'm Up To</h2>
+            <h2 class="section-title fade-in">Latest Posts</h2>
             <div class="blog-grid">
-                <!-- Current status updates - manually edit this section -->
+                <!-- Add your blog posts here - I've provided examples -->
                 <div class="blog-card fade-in">
-                    <div class="blog-date">January 27, 2026</div>
-                    <h3 class="blog-title">🔐 Portfolio Upgrade & HomeLab Build</h3>
+                    <div class="blog-date">January 25, 2026</div>
+                    <h3 class="blog-title">Advanced SQL Injection Techniques</h3>
                     <p class="blog-excerpt">
-                        Currently upgrading my portfolio site with Google Cybersecurity resources and building out a home lab on the side. Excited to document the journey and share what I learn along the way!
+                        Exploring modern SQL injection vectors and bypass techniques for web application security testing...
                     </p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+
+                <div class="blog-card fade-in">
+                    <div class="blog-date">January 20, 2026</div>
+                    <h3 class="blog-title">Building a Security Operations Center</h3>
+                    <p class="blog-excerpt">
+                        Key considerations and best practices for establishing an effective SOC from scratch...
+                    </p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+
+                <div class="blog-card fade-in">
+                    <div class="blog-date">January 15, 2026</div>
+                    <h3 class="blog-title">API Security Testing Methodology</h3>
+                    <p class="blog-excerpt">
+                        A comprehensive guide to testing REST APIs for common vulnerabilities and security flaws...
+                    </p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
         </div>
@@ -1305,7 +1324,7 @@
                     Interested in collaboration, networking, or discussing cybersecurity?<br>
                     Always open to learning opportunities and connecting with fellow security enthusiasts!
                 </p>
-                <a href="/cdn-cgi/l/email-protection#86f0e3eae3e8f2efedeee9e8e9f0c6e1ebe7efeaa8e5e9eb" class="contact-email"><span class="__cf_email__" data-cfemail="d5a3b0b9b0bba1bcbebdbabbbaa395b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
+                <a href="mailto:velentikhonov@gmail.com" class="contact-email">velentikhonov@gmail.com</a>
             </div>
         </div>
     </section>
@@ -1317,7 +1336,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
@@ -1545,4 +1564,13 @@
                 }
             });
 
-            navLinks.forEach(lin
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
