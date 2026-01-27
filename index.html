@@ -730,6 +730,29 @@
             color: var(--accent-red);
         }
 
+        .project-skills {
+            list-style: none;
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .project-skills li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .project-skills li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
         /* Blog Section */
         .blog-grid {
             display: grid;
@@ -1173,98 +1196,61 @@
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
+            <h2 class="section-title fade-in">Top Projects</h2>
             <div class="projects-grid">
-                <!-- Add your projects here - I've provided examples -->
                 <div class="project-card fade-in">
-                    <div class="project-image">🔒</div>
+                    <div class="project-image">🍯</div>
                     <div class="project-content">
-                        <h3 class="project-title">Enterprise Penetration Test</h3>
+                        <h3 class="project-title">T-Pot Honeypot AWS Deployment</h3>
                         <p class="project-description">
-                            Comprehensive security assessment of a Fortune 500 company's infrastructure, identifying critical vulnerabilities and providing remediation strategies.
+                            Complete tutorial for deploying T-Pot honeypot infrastructure on AWS to capture and analyze malicious activity in real-time.
                         </p>
-                        <div class="project-tags">
-                            <span class="tag">Penetration Testing</span>
-                            <span class="tag">Network Security</span>
-                            <span class="tag">Web Applications</span>
-                        </div>
+                        <ul class="project-skills">
+                            <li>AWS Cloud Deployment</li>
+                            <li>Honeypot Configuration</li>
+                            <li>Threat Intelligence</li>
+                            <li>Security Monitoring</li>
+                        </ul>
+                        <a href="https://github.com/limesnake/How-To-Deploy-T-pot-Tutorial" target="_blank" class="cert-view-btn">View Project →</a>
                     </div>
                 </div>
 
                 <div class="project-card fade-in">
-                    <div class="project-image">⚡</div>
+                    <div class="project-image">🔥</div>
                     <div class="project-content">
-                        <h3 class="project-title">Custom Security Tool Development</h3>
+                        <h3 class="project-title">NFTables Firewall Project</h3>
                         <p class="project-description">
-                            Developed automated security scanning tools to identify vulnerabilities in web applications and APIs, reducing assessment time by 60%.
+                            Network security project implementing advanced firewall rules using NFTables for robust network protection and traffic filtering.
                         </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Automation</span>
-                            <span class="tag">Tool Development</span>
-                        </div>
+                        <ul class="project-skills">
+                            <li>NFTables Configuration</li>
+                            <li>Network Security</li>
+                            <li>Packet Filtering</li>
+                            <li>Linux Firewalls</li>
+                        </ul>
+                        <a href="https://github.com/limesnake/Network_Security_Project" target="_blank" class="cert-view-btn">View Project →</a>
                     </div>
                 </div>
 
                 <div class="project-card fade-in">
-                    <div class="project-image">🛡️</div>
+                    <div class="project-image">🏥</div>
                     <div class="project-content">
-                        <h3 class="project-title">Red Team Operation</h3>
+                        <h3 class="project-title">Hospital Database System</h3>
                         <p class="project-description">
-                            Led a full-scope red team engagement simulating advanced persistent threats, testing detection and response capabilities.
+                            Comprehensive SQL database design and implementation for hospital management system with patient records, appointments, and staff management.
                         </p>
-                        <div class="project-tags">
-                            <span class="tag">Red Teaming</span>
-                            <span class="tag">Social Engineering</span>
-                            <span class="tag">APT Simulation</span>
-                        </div>
+                        <ul class="project-skills">
+                            <li>SQL Database Design</li>
+                            <li>Data Modeling</li>
+                            <li>Query Optimization</li>
+                            <li>Healthcare Systems</li>
+                        </ul>
+                        <a href="https://github.com/limesnake/Hospital_Database_Project" target="_blank" class="cert-view-btn">View Project →</a>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">🔍</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Vulnerability Research</h3>
-                        <p class="project-description">
-                            Discovered and responsibly disclosed multiple zero-day vulnerabilities in popular software applications.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">CVE</span>
-                            <span class="tag">Zero-Day</span>
-                            <span class="tag">Responsible Disclosure</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">🌐</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cloud Security Assessment</h3>
-                        <p class="project-description">
-                            Evaluated cloud infrastructure security posture for multiple clients, implementing best practices and compliance frameworks.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">AWS</span>
-                            <span class="tag">Azure</span>
-                            <span class="tag">Cloud Security</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">💻</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Incident Response & Forensics</h3>
-                        <p class="project-description">
-                            Conducted digital forensics and incident response for a major security breach, identifying attack vectors and implementing countermeasures.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">DFIR</span>
-                            <span class="tag">Malware Analysis</span>
-                            <span class="tag">Forensics</span>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="projects.html" class="view-all-btn">View All Projects →</a>
             </div>
         </div>
     </section>
