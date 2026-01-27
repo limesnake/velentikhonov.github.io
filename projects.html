@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All Projects - Velen Tikhonov Cybersecurity Portfolio">
+    <title>All Projects | Velen Tikhonov</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-red: #ff0000;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #000000;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border-gray: rgba(255, 255, 255, 0.1);
+            --glow-red: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        body.light-mode {
+            --dark-bg: #ffffff;
+            --darker-bg: #f5f5f5;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --border-gray: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Binary Rain Background */
+        #binaryRain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        body.light-mode #binaryRain {
+            opacity: 0.15;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+        }
+
+        body.light-mode nav {
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        body.light-mode .logo {
+            color: #ffffff;
+        }
+
+        .back-button {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--accent-red);
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding-top: 150px;
+            padding-bottom: 3rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 3rem 0 6rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 2px solid var(--border-gray);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-red);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(128, 0, 0, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-skills {
+            list-style: none;
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .project-skills li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .project-skills li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        .project-view-btn {
+            display: inline-block;
+            margin-top: auto;
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--accent-red);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .project-view-btn:hover {
+            background: var(--accent-red);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 30px;
+            z-index: 10000;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: transparent;
+            border: 3px solid white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .theme-toggle svg {
+            filter: drop-shadow(0 0 5px white);
+        }
+
+        body.light-mode .theme-toggle {
+            border-color: black;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode .theme-toggle:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 60px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-mode .theme-toggle svg {
+            filter: drop-shadow(0 0 5px black);
+        }
+    </style>
+</head>
+<body>
+    <!-- Binary Rain Background -->
+    <canvas id="binaryRain"></canvas>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="white" id="themeIcon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">VELEN TIKHONOV</a>
+            <a href="index.html#projects" class="back-button">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">All Projects</h1>
+            <p class="page-subtitle">My cybersecurity and development projects</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🍯</div>
+                    <div class="project-content">
+                        <h3 class="project-title">T-Pot Honeypot AWS Deployment</h3>
+                        <p class="project-description">
+                            Complete tutorial for deploying T-Pot honeypot infrastructure on AWS to capture and analyze malicious activity in real-time.
+                        </p>
+                        <ul class="project-skills">
+                            <li>AWS Cloud Deployment</li>
+                            <li>Honeypot Configuration</li>
+                            <li>Threat Intelligence</li>
+                            <li>Security Monitoring</li>
+                        </ul>
+                        <a href="https://github.com/limesnake/How-To-Deploy-T-pot-Tutorial" target="_blank" class="project-view-btn">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🔥</div>
+                    <div class="project-content">
+                        <h3 class="project-title">NFTables Firewall Project</h3>
+                        <p class="project-description">
+                            Network security project implementing advanced firewall rules using NFTables for robust network protection and traffic filtering.
+                        </p>
+                        <ul class="project-skills">
+                            <li>NFTables Configuration</li>
+                            <li>Network Security</li>
+                            <li>Packet Filtering</li>
+                            <li>Linux Firewalls</li>
+                        </ul>
+                        <a href="https://github.com/limesnake/Network_Security_Project" target="_blank" class="project-view-btn">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🏥</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hospital Database System</h3>
+                        <p class="project-description">
+                            Comprehensive SQL database design and implementation for hospital management system with patient records, appointments, and staff management.
+                        </p>
+                        <ul class="project-skills">
+                            <li>SQL Database Design</li>
+                            <li>Data Modeling</li>
+                            <li>Query Optimization</li>
+                            <li>Healthcare Systems</li>
+                        </ul>
+                        <a href="https://github.com/limesnake/Hospital_Database_Project" target="_blank" class="project-view-btn">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+        let binaryColor = '#ff0000';
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-mode');
+            themeIcon.setAttribute('fill', 'black');
+            themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="black" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="black" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="black" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="black" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="black" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="black" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="black" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="black" stroke-width="2"/>';
+            binaryColor = '#000000';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                themeIcon.setAttribute('fill', 'black');
+                themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="black" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="black" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="black" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="black" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="black" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="black" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="black" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="black" stroke-width="2"/>';
+                localStorage.setItem('theme', 'light');
+                binaryColor = '#000000';
+            } else {
+                themeIcon.setAttribute('fill', 'white');
+                themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+                localStorage.setItem('theme', 'dark');
+                binaryColor = '#ff0000';
+            }
+        });
+
+        // Binary Rain Animation
+        const canvas = document.getElementById('binaryRain');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const binary = '01';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+
+        function drawBinaryRain() {
+            if (body.classList.contains('light-mode')) {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+            } else {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            }
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = binaryColor;
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawBinaryRain, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
