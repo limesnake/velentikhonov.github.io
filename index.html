@@ -1907,12 +1907,34 @@
                 }
             });
         });
-    // ============================================
-        // BLOG POST SYSTEM
+     // ============================================
+        // SECURE BLOG POST SYSTEM WITH DEVICE AUTH
         // ============================================
         
-        // SET YOUR PASSWORD HERE - Change this to your own secure password
-        const ADMIN_PASSWORD = "loam2buy1";
+        // Password obfuscated (reversed base64)
+        const _p = "MXl1YjJtYW9s";
+        
+        // Device authorization key
+        const DEVICE_KEY = "VT_SECURE_2026_CYBER";
+        
+        // Decode function
+        function _d(s) {
+            return atob(s.split('').reverse().join(''));
+        }
+        
+        // Check if device is authorized
+        function isAuthorizedDevice() {
+            const savedKey = localStorage.getItem('deviceAuthKey');
+            return savedKey === DEVICE_KEY;
+        }
+        
+        // Show/hide admin button based on device authorization
+        const adminButton = document.getElementById('adminButton');
+        if (isAuthorizedDevice()) {
+            adminButton.style.display = 'flex';
+        } else {
+            adminButton.style.display = 'none';
+        }
         
         let isAuthenticated = sessionStorage.getItem('blogAuth') === 'true';
         let blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [
@@ -1927,7 +1949,6 @@
         ];
 
         // Elements
-        const adminButton = document.getElementById('adminButton');
         const passwordModal = document.getElementById('passwordModal');
         const blogModal = document.getElementById('blogModal');
         const passwordSubmit = document.getElementById('passwordSubmit');
@@ -1998,9 +2019,9 @@
             }
         });
 
-        // Password submit
+        // Password submit with obfuscated password
         passwordSubmit.addEventListener('click', () => {
-            if (adminPassword.value === ADMIN_PASSWORD) {
+            if (adminPassword.value === _d(_p)) {
                 isAuthenticated = true;
                 sessionStorage.setItem('blogAuth', 'true');
                 passwordModal.classList.remove('active');
@@ -2105,8 +2126,6 @@
             blogForm.reset();
             currentImages = [];
             imagePreviewContainer.innerHTML = '';
-            
-            alert('Post published successfully!');
         });
 
         // Initial load
