@@ -1319,7 +1319,7 @@
                     Interested in collaboration, networking, or discussing cybersecurity?<br>
                     Always open to learning opportunities and connecting with fellow security enthusiasts!
                 </p>
-                <a href="/cdn-cgi/l/email-protection#2d5b48414843594446454243425b6d4a404c4441034e4240" class="contact-email"><span class="__cf_email__" data-cfemail="e791828b8289938e8c8f88898891a7808a868e8bc984888a">[email&#160;protected]</span></a>
+                <a href="mailto:velentikhonov@gmail.com" class="contact-email">velentikhonov@gmail.com</a>
             </div>
         </div>
     </section>
@@ -1331,7 +1331,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
@@ -1559,4 +1559,13 @@
                 }
             });
 
-            navLinks.forEach(link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
