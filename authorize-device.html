@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Authorization - Velen Tikhonov</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .auth-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #ff0000;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .status {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-weight: 600;
+        }
+
+        .status.pending {
+            background: rgba(255, 165, 0, 0.2);
+            border: 1px solid rgba(255, 165, 0, 0.5);
+            color: #ffa500;
+        }
+
+        .status.success {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid rgba(0, 255, 0, 0.5);
+            color: #00ff00;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 3px solid #ff0000;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .back-link a {
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h1>🔐 Device Authorization</h1>
+        <p class="subtitle">Authorize this device to access admin features</p>
+
+        <div class="status pending" id="status">
+            ⏳ Device not authorized
+        </div>
+
+        <div class="info-box">
+            <strong>Instructions:</strong><br>
+            1. Click the button below to authorize this device<br>
+            2. This only needs to be done once per device<br>
+            3. After authorization, the admin button will appear on your portfolio
+        </div>
+
+        <button onclick="authorizeDevice()">Authorize This Device</button>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Portfolio</a>
+        </div>
+    </div>
+
+    <script>
+        // THIS IS YOUR SECRET KEY - Keep this private!
+        const DEVICE_KEY = "VT_SECURE_2026_CYBER";
+
+        // Check if already authorized
+        window.onload = function() {
+            checkAuthorization();
+        };
+
+        function checkAuthorization() {
+            const savedKey = localStorage.getItem('deviceAuthKey');
+            if (savedKey === DEVICE_KEY) {
+                document.getElementById('status').className = 'status success';
+                document.getElementById('status').innerHTML = '✅ This device is authorized!';
+            }
+        }
+
+        function authorizeDevice() {
+            localStorage.setItem('deviceAuthKey', DEVICE_KEY);
+            document.getElementById('status').className = 'status success';
+            document.getElementById('status').innerHTML = '✅ Device authorized successfully!';
+            
+            setTimeout(() => {
+                alert('Device authorized! You can now access admin features on your portfolio.');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
