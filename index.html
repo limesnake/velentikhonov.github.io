@@ -567,6 +567,28 @@
             color: var(--accent-red);
         }
 
+        .cert-skills {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding: 0;
+        }
+
+        .cert-skills li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .cert-skills li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
         /* View All Button */
         .view-all-btn {
             display: inline-block;
@@ -1080,16 +1102,40 @@
                     <div class="cert-name">Google Cybersecurity Certificate</div>
                     <div class="cert-issuer">Google</div>
                     <div class="cert-date">Issued: January 2026</div>
+                    <ul class="cert-skills">
+                        <li>Security Risk Management</li>
+                        <li>Network Security & Monitoring</li>
+                        <li>Linux & SQL Fundamentals</li>
+                        <li>SIEM Tools (Splunk, Chronicle)</li>
+                        <li>Incident Response & Detection</li>
+                        <li>Python for Security Automation</li>
+                    </ul>
                 </div>
                 <div class="cert-card fade-in">
                     <div class="cert-name">Pre Security Certificate</div>
                     <div class="cert-issuer">TryHackMe</div>
                     <div class="cert-date">Issued: January 2026</div>
+                    <ul class="cert-skills">
+                        <li>Networking Fundamentals</li>
+                        <li>How the Web Works</li>
+                        <li>Linux & Windows Basics</li>
+                        <li>Operating System Security</li>
+                        <li>TCP/IP & OSI Model</li>
+                        <li>Basic Security Principles</li>
+                    </ul>
                 </div>
                 <div class="cert-card fade-in">
                     <div class="cert-name">Introduction to Cybersecurity</div>
                     <div class="cert-issuer">Cisco</div>
                     <div class="cert-date">Issued: November 2024</div>
+                    <ul class="cert-skills">
+                        <li>Cybersecurity Fundamentals</li>
+                        <li>Threat & Vulnerability Analysis</li>
+                        <li>Data Protection & Privacy</li>
+                        <li>Network Security Concepts</li>
+                        <li>Cyber Attack Types</li>
+                        <li>Security Best Practices</li>
+                    </ul>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
