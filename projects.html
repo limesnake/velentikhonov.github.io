@@ -86,12 +86,13 @@
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--text-primary);
-            letter-spacing: 2px;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
         }
 
         body.light-mode .logo {
@@ -317,7 +318,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">VELEN TIKHONOV</a>
+            <a href="index.html" class="logo"><img src="velen-tikhonov-cybersec-logo.png" alt="Velen Tikhonov"></a>
             <a href="index.html#projects" class="back-button">← Back to Home</a>
         </div>
     </nav>
