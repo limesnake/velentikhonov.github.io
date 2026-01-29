@@ -116,19 +116,12 @@
             box-sizing: border-box;
         }
 
-        html {
-            width: 100%;
-            overflow-x: hidden;
-        }
-
         body {
             font-family: 'Exo 2', sans-serif;
             background: var(--dark-bg);
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
-            width: 100%;
-            min-width: 100%;
         }
 
         /* Animated Background */
@@ -333,13 +326,10 @@
             text-align: center;
             padding-top: 100px;
             position: relative;
-            z-index: 1;
         }
 
         .hero-content {
             animation: fadeInUp 1s ease-out;
-            position: relative;
-            z-index: 2;
         }
 
         @keyframes fadeInUp {
@@ -410,7 +400,6 @@
         section {
             padding: 8rem 0;
             position: relative;
-            z-index: 1;
         }
 
         .section-title {
@@ -1260,18 +1249,11 @@
             text-align: center;
             border-top: 1px solid var(--border-gray);
             margin-top: 5rem;
-            width: 100%;
-        }
-
-        footer .container {
-            padding: 0 5%;
         }
 
         footer p {
             color: var(--text-secondary);
             font-size: 1rem;
-            line-height: 1.6;
-            word-wrap: break-word;
         }
 
         /* Responsive Design */
@@ -1405,15 +1387,6 @@
                 padding: 2rem;
                 margin: 1rem;
             }
-
-            footer {
-                padding: 2rem 0;
-            }
-
-            footer p {
-                font-size: 0.9rem;
-                padding: 0 1rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1457,10 +1430,6 @@
             .sync-btn {
                 width: 45px;
                 height: 45px;
-            }
-
-            footer p {
-                font-size: 0.85rem;
             }
         }
 
@@ -1794,7 +1763,6 @@ window.addEventListener('load', () => {
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#experience">Professional Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#blog">Updates</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -2613,4 +2581,11 @@ function importData(file) {
             console.error(error);
         }
     };
-    reader.re
+    reader.readAsText(file);
+}
+        
+    </script>
+    <!-- Data Sync Buttons (visible only to authorized admins) -->
+<div class="sync-panel" id="syncPanel" style="display: none;">
+    <button class="sync-btn" onclick="exportData()" title="Export Data">
+       
