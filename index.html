@@ -233,11 +233,18 @@
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--text-primary);
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -1570,7 +1577,9 @@ window.addEventListener('load', () => {
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">VELEN TIKHONOV</div>
+            <div class="logo">
+                <img src="velen-tikhonov-cybersec-logo.png" alt="Velen Tikhonov Logo">
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1845,7 +1854,7 @@ window.addEventListener('load', () => {
                     Interested in collaboration, networking, or discussing cybersecurity?<br>
                     Always open to learning opportunities and connecting with fellow security enthusiasts!
                 </p>
-                <a href="mailto:velentikhonov@gmail.com" class="contact-email">velentikhonov@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#0e786b626b607a676566616061784e69636f6762206d6163" class="contact-email"><span class="__cf_email__" data-cfemail="a0d6c5ccc5ced4c9cbc8cfcecfd6e0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></a>
             </div>
         </div>
     </section>
@@ -1857,7 +1866,7 @@ window.addEventListener('load', () => {
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
@@ -2375,12 +2384,4 @@ function importData(file) {
     <!-- Data Sync Buttons (visible only to authorized admins) -->
 <div class="sync-panel" id="syncPanel" style="display: none;">
     <button class="sync-btn" onclick="exportData()" title="Export Data">
-        📥 Export
-    </button>
-    <label class="sync-btn" title="Import Data">
-        📤 Import
-        <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importData(this.files[0])">
-    </label>
-</div>
-</body>
-</html>
+       
