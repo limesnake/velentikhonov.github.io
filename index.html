@@ -1230,32 +1230,290 @@
         }
 
         /* Responsive Design */
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
+            /* Navigation */
+            nav {
+                padding: 1rem 5%;
             }
 
-            .hero .subtitle {
-                font-size: 1.3rem;
+            .container {
+                padding: 0 5%;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
             }
 
             nav ul {
-                gap: 1.5rem;
-                font-size: 0.85rem;
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 2rem;
+                padding: 3rem 0;
+                transition: left 0.3s ease;
+                border-top: 1px solid var(--border-gray);
             }
 
+            nav ul.active {
+                left: 0;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            /* Theme Toggle */
+            .theme-toggle {
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 6rem 5% 4rem;
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+                margin: 1rem 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .hero-buttons .btn,
+            .hero-buttons .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* About Section */
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .profile-image img {
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Section Titles */
+            .section-title {
+                font-size: 2rem;
+            }
+
+            /* Projects, Blog, Certs Grids */
+            .projects-grid,
+            .blog-grid,
+            .certs-grid,
+            .labs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Cards */
+            .project-card,
+            .blog-card,
+            .cert-card,
+            .lab-card {
+                padding: 1.5rem;
+            }
+
+            /* Skills */
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+
+            /* Stats */
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            /* Footer */
+            footer {
+                padding: 2rem 5%;
+            }
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            /* Modals */
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+                padding: 1.5rem;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .modal h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Blog Post Form */
+            #blogForm input,
+            #blogForm textarea,
+            #blogForm button {
+                font-size: 1rem;
+            }
+
+            /* CLI Overlay */
+            .cli-content {
+                width: 90%;
+                font-size: 1rem;
+            }
+
+            .cli-logos {
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .cli-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Sync Panel */
+            .sync-panel {
+                bottom: 20px;
+                right: 10px;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .sync-btn {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+            }
+
+            /* Admin Button */
+            .admin-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                left: 10px;
+            }
+
+            /* Binary Rain - reduce on mobile */
+            #binaryRain {
+                opacity: 0.3;
+            }
+
+            /* Password Modal */
+            .password-modal .modal-content {
+                padding: 2rem 1.5rem;
+            }
+
+            /* Image Previews */
+            .image-preview-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* Blog Images */
+            .blog-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
             }
 
             .section-title {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
             }
 
-            .projects-grid,
-            .blog-grid,
-            .certs-grid {
-                grid-template-columns: 1fr;
+            .logo img {
+                height: 35px;
+            }
+
+            nav {
+                padding: 0.8rem 5%;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
         }
 
@@ -1580,13 +1838,18 @@ window.addEventListener('load', () => {
             <div class="logo">
                 <img src="velen-tikhonov-cybersec-logo.png" alt="Velen Tikhonov Logo">
             </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Updates</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="mobileMenu">
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="#certifications" onclick="closeMobileMenu()">Certifications</a></li>
+                <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
+                <li><a href="#blog" onclick="closeMobileMenu()">Updates</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -2379,6 +2642,32 @@ function importData(file) {
     };
     reader.readAsText(file);
 }
+
+// Mobile menu toggle functions
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    menu.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    menu.classList.remove('active');
+    toggle.classList.remove('active');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobileMenu');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if (!nav.contains(event.target) && menu.classList.contains('active')) {
+        closeMobileMenu();
+    }
+});
         
     </script>
     <!-- Data Sync Buttons (visible only to authorized admins) -->
