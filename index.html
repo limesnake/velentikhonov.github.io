@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <li><a href="#experience">Experience</a></li>
     <style>
         :root {
             --accent-red: #ff0000;
@@ -1371,6 +1372,113 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Labs Grid */
+.labs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.lab-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 2px solid var(--border-gray);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-red);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+}
+
+.lab-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(128, 0, 0, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.lab-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.lab-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.lab-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.lab-skills {
+    list-style: none;
+    margin-top: 1.5rem;
+    padding: 0;
+}
+
+.sync-panel {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 998;
+}
+
+.sync-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 0, 0, 0.9);
+    border: 2px solid var(--accent-red);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sync-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
+}
+
+
+.lab-skills li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.lab-skills li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-weight: bold;
+}
     </style>
 </head>
         <!-- Google tag (gtag.js) -->
@@ -1381,6 +1489,61 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Z6M7LSMSTE');
+
+    // Load labs for preview on main page
+let labs = JSON.parse(localStorage.getItem('labs')) || [
+    {
+        id: Date.now(),
+        emoji: '🔬',
+        title: 'TryHackMe Security Labs',
+        description: 'Completed 100+ hands-on cybersecurity challenges covering penetration testing, network security, web application security, and digital forensics.',
+        skills: ['Penetration Testing', 'Linux Security', 'Web Application Security', 'Network Analysis', 'OSINT', 'Cryptography'],
+        link: 'https://tryhackme.com/p/velentikhonov'
+    }
+];
+
+function loadLabsPreview() {
+    const labsPreview = document.getElementById('labsPreview');
+    if (!labsPreview) return;
+    
+    labsPreview.innerHTML = '';
+    const top3Labs = labs.slice(0, 3);
+    
+    top3Labs.forEach(lab => {
+        const labCard = document.createElement('div');
+        labCard.className = 'lab-card fade-in';
+        
+        let skillsHTML = '';
+        if (lab.skills && lab.skills.length > 0) {
+            skillsHTML = '<ul class="lab-skills">';
+            lab.skills.slice(0, 4).forEach(skill => {
+                skillsHTML += `<li>${skill}</li>`;
+            });
+            skillsHTML += '</ul>';
+        }
+
+        const linkButton = lab.link ? 
+            `<a href="${lab.link}" target="_blank" class="cert-view-btn">View Details →</a>` : 
+            '';
+
+        labCard.innerHTML = `
+            <div class="lab-image">${lab.emoji}</div>
+            <div class="lab-content">
+                <h3 class="lab-title">${lab.title}</h3>
+                <p class="lab-description">${lab.description}</p>
+                ${skillsHTML}
+                ${linkButton}
+            </div>
+        `;
+        
+        labsPreview.appendChild(labCard);
+    });
+}
+
+// Call this function when page loads
+window.addEventListener('load', () => {
+    loadLabsPreview();
+});
 </script>
 <body>
     <!-- Binary Rain Background -->
@@ -2152,7 +2315,72 @@
 
         // Initial load
         loadBlogPosts();
+
+        // Show sync panel for authorized devices
+if (isAuthorizedDevice()) {
+    document.getElementById('syncPanel').style.display = 'flex';
+}
+
+// Export all data
+function exportData() {
+    const data = {
+        blogs: JSON.parse(localStorage.getItem('blogPosts') || '[]'),
+        certs: JSON.parse(localStorage.getItem('certifications') || '[]'),
+        projects: JSON.parse(localStorage.getItem('projects') || '[]'),
+        labs: JSON.parse(localStorage.getItem('labs') || '[]'),
+        exportDate: new Date().toISOString()
+    };
+    
+    const dataStr = JSON.stringify(data, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `portfolio-data-${Date.now()}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    alert('Data exported successfully! Transfer this file to your other devices.');
+}
+
+// Import data
+function importData(file) {
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            
+            if (confirm('This will replace all current data. Continue?')) {
+                if (data.blogs) localStorage.setItem('blogPosts', JSON.stringify(data.blogs));
+                if (data.certs) localStorage.setItem('certifications', JSON.stringify(data.certs));
+                if (data.projects) localStorage.setItem('projects', JSON.stringify(data.projects));
+                if (data.labs) localStorage.setItem('labs', JSON.stringify(data.labs));
+                
+                alert('Data imported successfully! Refreshing page...');
+                location.reload();
+            }
+        } catch (error) {
+            alert('Error importing data. Please check the file format.');
+            console.error(error);
+        }
+    };
+    reader.readAsText(file);
+}
         
     </script>
+    <!-- Data Sync Buttons (visible only to authorized admins) -->
+<div class="sync-panel" id="syncPanel" style="display: none;">
+    <button class="sync-btn" onclick="exportData()" title="Export Data">
+        📥 Export
+    </button>
+    <label class="sync-btn" title="Import Data">
+        📤 Import
+        <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importData(this.files[0])">
+    </label>
+</div>
 </body>
 </html>
