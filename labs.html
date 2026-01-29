@@ -202,10 +202,10 @@
             margin: 0 auto;
         }
 
-        /* Labs Grid (for future use) */
+        /* Labs Grid */
         .labs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -216,12 +216,78 @@
             border: 2px solid var(--border-gray);
             overflow: hidden;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .lab-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent-red);
             box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .lab-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(128, 0, 0, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .lab-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lab-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .lab-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .lab-skills {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-skills li {
+            background: rgba(255, 0, 0, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--accent-red);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .cert-view-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .cert-view-btn:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
         }
 
         /* Footer */
@@ -246,10 +312,20 @@
 
             .labs-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .main-content {
                 padding: 100px 5% 60px;
+            }
+
+            .lab-image {
+                height: 150px;
+                font-size: 3rem;
+            }
+
+            .lab-content {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -278,19 +354,71 @@
             <p class="page-subtitle">Practical Cybersecurity Labs & Challenges</p>
         </div>
 
-        <!-- Empty State (remove this when adding labs) -->
-        <div class="empty-state">
-            <div class="empty-icon">🧪</div>
-            <h2 class="empty-title">Coming Soon</h2>
-            <p class="empty-text">
-                This section will showcase all my completed practical labs, including TryHackMe rooms, 
-                HackTheBox challenges, and other hands-on cybersecurity exercises. Check back soon!
-            </p>
-        </div>
+        <!-- Labs Grid -->
+        <div class="labs-grid">
+            <!-- Security Architecture Labs -->
+            <div class="lab-card">
+                <div class="lab-image">🏛️</div>
+                <div class="lab-content">
+                    <h3 class="lab-title">Security Architecture Labs</h3>
+                    <p class="lab-description">Hands-on labs covering security architecture design, implementation, and best practices.</p>
+                    <ul class="lab-skills">
+                        <li>Security Design</li>
+                        <li>Infrastructure Security</li>
+                        <li>Defense in Depth</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                    <a href="security-architecture-labs.html" class="cert-view-btn">View Details →</a>
+                </div>
+            </div>
 
-        <!-- Labs Grid (for future use) -->
-        <div class="labs-grid" id="labsGrid" style="display: none;">
-            <!-- Lab cards will go here -->
+            <!-- AI and Data Science Labs -->
+            <div class="lab-card">
+                <div class="lab-image">🤖</div>
+                <div class="lab-content">
+                    <h3 class="lab-title">Fundamentals of AI and Data Science Labs</h3>
+                    <p class="lab-description">Practical exercises in artificial intelligence, machine learning, and data analysis.</p>
+                    <ul class="lab-skills">
+                        <li>Machine Learning</li>
+                        <li>Data Analysis</li>
+                        <li>Python</li>
+                        <li>Neural Networks</li>
+                    </ul>
+                    <a href="ai-data-science-labs.html" class="cert-view-btn">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Web Application Security Labs -->
+            <div class="lab-card">
+                <div class="lab-image">🌐</div>
+                <div class="lab-content">
+                    <h3 class="lab-title">Web Application Security Labs</h3>
+                    <p class="lab-description">Comprehensive labs on web application vulnerabilities and security testing.</p>
+                    <ul class="lab-skills">
+                        <li>OWASP Top 10</li>
+                        <li>SQL Injection</li>
+                        <li>XSS</li>
+                        <li>Authentication Bypass</li>
+                    </ul>
+                    <a href="web-app-security-labs.html" class="cert-view-btn">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Advanced Scripting Labs -->
+            <div class="lab-card">
+                <div class="lab-image">💻</div>
+                <div class="lab-content">
+                    <h3 class="lab-title">Advanced Scripting Labs</h3>
+                    <p class="lab-description">Advanced automation and scripting challenges for security operations.</p>
+                    <ul class="lab-skills">
+                        <li>Python Scripting</li>
+                        <li>Bash</li>
+                        <li>PowerShell</li>
+                        <li>Automation</li>
+                    </ul>
+                    <a href="advanced-scripting-labs.html" class="cert-view-btn">View Details →</a>
+                </div>
+            </div>
         </div>
     </div>
 
