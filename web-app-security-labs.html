@@ -169,32 +169,69 @@
             font-size: 1.2rem;
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 5rem 2rem;
-            background: var(--card-bg);
-            border-radius: 20px;
-            border: 2px solid var(--border-gray);
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
-        .empty-icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
+        .lab-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 2px solid var(--border-gray);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .empty-title {
-            font-size: 2rem;
+        .lab-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-red);
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .lab-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .lab-content {
+            padding: 2rem;
+        }
+
+        .lab-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
-        .empty-text {
+        .lab-description {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-button {
+            display: inline-block;
+            background: var(--accent-red);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lab-button:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
         }
 
         footer {
@@ -241,14 +278,20 @@
             <p class="page-subtitle">Comprehensive labs on web application vulnerabilities and security testing</p>
         </div>
 
-        <div class="empty-state">
-            <div class="empty-icon">🔐</div>
-            <h2 class="empty-title">Coming Soon</h2>
-            <p class="empty-text">
-                This section will showcase web application security labs including OWASP Top 10 vulnerabilities, 
-                SQL injection, XSS attacks, authentication bypass techniques, and secure coding practices. 
-                Check back soon for detailed lab write-ups!
-            </p>
+        <div class="labs-grid">
+            <div class="lab-card">
+                <img src="burp.jpg" alt="Burp Suite Lab" class="lab-image">
+                <div class="lab-content">
+                    <h3 class="lab-title">Burp Suite & FoxyProxy Lab</h3>
+                    <p class="lab-description">
+                        In this lab I installed and set up Kali Linux, set up Burp Suite with FoxyProxy and captured HTTP traffic for the first time.
+                    </p>
+                    <a href="https://github.com/limesnake/Labs/tree/main/web-application-security/Burpsuite_and_foxproxy_lab" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="lab-button">View More →</a>
+                </div>
+            </div>
         </div>
     </div>
 
